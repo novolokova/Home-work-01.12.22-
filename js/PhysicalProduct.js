@@ -1,3 +1,5 @@
+'use strict'
+
 class PhysicalProduct extends Product {
   /**
    *

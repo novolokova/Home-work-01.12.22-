@@ -1,3 +1,5 @@
+'use strict'
+
 class VirtualProduct extends Product {
   /**
    *
