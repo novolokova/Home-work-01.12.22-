@@ -15,21 +15,22 @@ class VirtualProduct extends Product {
     return this._sizeMemory;
   }
   set sizeMemory(sizeMemory) {
-    if (typeof sizeMemory !== "string") {
-      throw new TypeError("sizeMemory must be string");
+    if (checkNumber(sizeMemory)) {
+      this._sizeMemory = sizeMemory;
     }
-    this._sizeMemory = sizeMemory;
   }
+
   getProductInfo() {
-    return `Memory: ${this._name} (${this._sizeMemory})
-        price: ${this._price} ${this._currency}`;
+    return `memory card: ${super.getProductInfo()}
+Size memory: ${this._sizeMemory} MB`;
   }
 }
+
 try {
-  const product3 = new VirtualProduct("ddr2 intel", 750, "USD", 19, "256 MB");
-  console.log(product3);
-  console.log(product3.getProductInfo());
-  console.log(product3.byProduct(8));
+  const product3 = new VirtualProduct("ddr2 intel", 750, "USD", 19, 256);
+  // console.log(product3);
+  // console.log(product3.getProductInfo());
+  // console.log(product3.byProduct(8));
 } catch (error) {
   console.log(error);
 }
